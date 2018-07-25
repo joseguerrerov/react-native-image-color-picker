@@ -53,11 +53,13 @@ export default class ImageColorPicker extends Component {
 
     return (
       <WebView
+        {...this.props}
         ref={imageColorPickerView => (this.imageColorPickerView = imageColorPickerView)}
         source={{ html: canvasHtml(this.state.imageBlob, this.props) }}
         javaScriptEnabled={true}
         onMessage={pickerCallback}
         style={pickerStyle}
+        bounces={false}
       />
     );
   }
